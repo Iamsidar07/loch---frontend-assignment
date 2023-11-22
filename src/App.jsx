@@ -4,7 +4,6 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     if (email && (!email.includes("@") || !email.includes("."))) {
       setError("Please enter a valid email.");
@@ -15,19 +14,16 @@ const App = () => {
 
   function handleScroll(event) {
     const scrollContainer = event.target;
-    const icon = document.getElementById('rotateIcon'); // Replace 'rotateIcon' with your icon's ID or class
+    const icon = document.getElementById("rotateIcon");
     if (icon) {
-      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const maxScroll =
+        scrollContainer.scrollWidth - scrollContainer.clientWidth;
       const scrolled = scrollContainer.scrollLeft;
 
-      const rotation = (scrolled / maxScroll) * 360; // Adjust the multiplier to control the rotation
-
+      const rotation = (scrolled / maxScroll) * 360;
       icon.style.transform = `rotate(${rotation}deg)`;
     }
   }
-
-
-
 
   const redirect = () => {
     if (email && !error) {
@@ -43,11 +39,15 @@ const App = () => {
           src="/blue.svg"
           alt=""
           className="absolute w-full h-full object-cover top-0 left-0 bottom-0 -z-10"
-         
         />
         <div className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:gap-x-6 relative">
           <div className="flex flex-col gap-y-[16px] w-full max-w-[322px]">
-            <img src="/bell.svg" alt="" className="w-[32px] h-[32px]" id="rotateIcon" />
+            <img
+              src="/bell.svg"
+              alt=""
+              className="w-[32px] h-[32px]"
+              id="rotateIcon"
+            />
             <h2 className="font-medium text-[31px] text-[#F2F2F2] stroke-[#000000] leading-9">
               Get notified when a highly correlated whale makes a move
             </h2>
@@ -164,7 +164,10 @@ const App = () => {
 
         <div className="flex">
           <div className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-black/80 to-transparent w-[200px] md:w-[330px] h-full" />
-          <div onScroll={handleScroll} className="flex-1 mt-6 pb-[20px] flex overflow-x-auto hide-scrollbar items-center gap-5 -m-[40px] md:my-0 md:ml-0 md:-mr-[40px]">
+          <div
+            onScroll={handleScroll}
+            className="flex-1 mt-6 pb-[20px] flex overflow-x-auto hide-scrollbar items-center gap-5 -m-[40px] md:my-0 md:ml-0 md:-mr-[40px]"
+          >
             <div className=" gap-[20px] p-[20px] rounded-[12px] bg-white flex-none w-[353px]">
               <h2 className="text-[16px] font-semibold leading-[19.2px] text-[#19191A]">
                 Jack F{" "}
