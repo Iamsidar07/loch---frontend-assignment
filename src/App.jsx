@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 const App = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
+
+
   useEffect(() => {
     if (email && (!email.includes("@") || !email.includes("."))) {
       setError("Please enter a valid email.");
@@ -10,6 +12,8 @@ const App = () => {
       setError(null);
     }
   }, [email]);
+
+ 
   const redirect = () => {
     if (email && !error) {
       window.location.href = "https://app.loch.one/welcome.";
@@ -25,7 +29,7 @@ const App = () => {
           alt=""
           className="absolute w-full h-full object-cover top-0 left-0 bottom-0 -z-10"
         />
-        <div className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:gap-x-6">
+        <div className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:gap-x-6 relative">
           <div className="flex flex-col gap-y-[16px] w-full max-w-[322px]">
             <img src="/bell.svg" alt="" className="w-[32px] h-[32px]" />
             <h2 className="font-medium text-[31px] text-[#F2F2F2] stroke-[#000000] leading-9">
@@ -36,8 +40,9 @@ const App = () => {
               on-chain or when a dormant whale you care about becomes active.
             </p>
           </div>
-          <div className="overflow-x-scroll w-full  hide-scrollbar max-w-full flex gap-6 md:ml-0 md:-mr-[48px]">
-            <div className="bg-white  p-5 space-y-6 w-[189.7px] h-[171.5px] relative rounded-[8.9px] ">
+          <div className="absolute left-[30%] bg-gradient-to-r from-black/20 -z-10 to-transparent w-[200px] h-[200px] rounded-full blur"/>
+          <div className="overflow-x-scroll w-full  hide-scrollbar max-w-full flex gap-6 md:ml-0 md:-mr-[48px] carousel ">
+            <div className="bg-white  p-5 space-y-6 w-[189.7px] h-[171.5px] relative rounded-[8.9px] carousel-item z-30">
               <p className="text-[9.1px] text-right font-semibold leading-[10.92px]">
                 save
               </p>
@@ -54,7 +59,7 @@ const App = () => {
                 className="w-[161px] h-[35px] rounded-[5.6px] border-[0.7px] py-[8.4px] px-[11.2px] border-[#D4D4D4] flex items-center justify-center text-[13px] font-semibold text-[#19191A] outline-none"
               />
             </div>
-            <div className="bg-white inline-flex flex-col justify-between p-5 space-y-6 w-[189.7px] h-[171.5px] relative rounded-[8.9px] flex-none">
+            <div className="bg-white inline-flex flex-col justify-between p-5 space-y-6 w-[189.7px] h-[171.5px] relative rounded-[8.9px] flex-none carousel-item">
               <p className="text-right">
                 <input
                   type="checkbox"
@@ -83,7 +88,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white inline-flex flex-col justify-between p-5 space-y-6 w-[189.7px] h-[171.5px] relative rounded-[8.9px] flex-none">
+            <div className="bg-white inline-flex flex-col justify-between p-5 space-y-6 w-[189.7px] h-[171.5px] relative rounded-[8.9px] flex-none carousel-item">
               <p className="text-right">
                 <input
                   type="checkbox"
@@ -190,11 +195,11 @@ const App = () => {
       </div>
       <div className="h-full w-full  md:col-span-4 bg-[#FFFFFF] flex flex-col items-center justify-center">
         <div className="flex flex-col w-full max-w-[365px] mx-auto p-[20px]">
-          <h2 className="text-[#B0B1B3] font-medium text-[39px] mb-[10px]">
+          <h2 className="text-[#B0B1B3] font-medium text-[35px] mb-[10px]">
             Sign up for <br /> exclusive access.
           </h2>
           <input
-            className="bg-[#FFFFFF] border focus-within:outline-none shadow-[1px] stroke-[#e6e5e5] px-[24px] py-[20px] font-medium text-[16px] rounded-[8px]"
+            className="bg-[#FFFFFF] border focus-within:outline-[#e6e5e5] hover:shadow-[#e6e5e5] shadow-[1px] stroke-[#e6e5e5] px-[24px] py-[20px] font-medium text-[16px] rounded-[8px]"
             type="email"
             required
             value={email}
